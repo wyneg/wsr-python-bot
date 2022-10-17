@@ -1,0 +1,83 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": ["Hola", "Buen día", "Buenos días", "Buena tarde", "Buenas tardes", "Buena noche", "Buenas noches"],
+            "responses": ["Hola", "Es bueno volver a vernos","Hola, ¿cómo puedo ayudarle?", "Buenos días", "Buenas tardes", "Buenas noches"],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": ["Adiós","Nos vemos","Que estés bien","Hasta la próxima","Chao","Hasta luego","Saludos"],
+            "responses": ["¡Nos vemos!","Que tengas un buen día","Adiós","Vuelve pronto"],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "thanks",
+            "patterns": ["Gracias","Te agradezco","Se agradece","Eso fue de ayuda","Gracias por ayudarme", "Muchas gracias"],
+            "responses": ["Alegre de poder ayudarte","Mi placer","Cuando quieras","Gracias a ti"],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "noanswer",
+            "patterns": [],
+            "responses": ["Disculpa, puedes preguntarme \n\nlo que desees, si está dentro \n\nde mis posibilidades","Disculpa, no puedo entenderte",
+            "¿Qué desea consultarme?"],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "options",
+            "patterns": ["¿Cómo puedes ayudarme?","¿Qué puedes hacer?","¿Qué puedo preguntarte?","¿Qué sabes?","¿Puedo preguntarte algo?",
+            "Quiero hacerte una pregunta","Una pregunta","Pregunta","Ayuda","Necesito ayuda","Quiero saber algo","ayuda"],
+            "responses": ["Puedo darte nuestros \n\ndatos de contacto","Puedo guiarte en \n\nlas partes que componen \n\nesta página"],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "phone",
+            "patterns": ["Dame el teléfono de la oficina central","Quiero el teléfono","Teléfono", "Telefono", "teléfono", "telefono",
+            "Quiero su teléfono", "Quiero su telefono","Dame el teléfono", "Dame el telefono","Deme su teléfono", "Deme su telefono",
+            "dame el telefono","deme su teléfono", "deme su telefono", "quiero su teléfono", "quiero su telefono"],
+            "responses": ["Nuestro teléfono es \n\n+56226964841"],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "address",
+            "patterns": ["Dirección","Direccion","dirección","direccion","Quiero la dirección de su oficina","¿Dónde están ubicados?", 
+                "Dame tu dirección", "Dame tu direccion","Deme su dirección","Deme su direccion", "dame tu dirección", "dame tu direccion","deme su dirección","deme su direccion",
+                "quiero tu dirección", "quiero la direccion","quiero su dirección"],
+            "responses": ["Nuestra dirección es \n\nAgustinas 1070 Oficina 301, \n\nSantiago de Chile"],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "page",
+            "patterns": ["Guíame por la página","guiame por la pagina", "Muéstrame la página", "muestrame la pagina","¿Qué partes tiene tu web?", "¿Qué partes tiene tu página web?", "¿Qué secciones tiene tu web?", "¿Que secciones tiene tu web?"],
+            "responses": ["Nuestra página tiene \n\nun índice y una \n\nsección de contacto"],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "web",
+            "patterns": ["Dirección web","direccion web","¿Cuál es su dirección web?", "¿Cuál es su página web?",
+                "¿cual es su pagina web?","URL", "url", "Web", "web", "Página Web", "página web", "Pagina Web", "pagina web"],
+            "responses": ["Nuestra dirección web es \n\nwww.socius.cl"],
+            "context": [
+                ""
+            ]
+        }
+    ]
+}

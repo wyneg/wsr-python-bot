@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="row">
+        <button class="open-button" id="chatButton" onclick="openForm()">Chat</button>
+        <div class="form-popup" id="userInput">
+            <div id="chatbox">
+                <div id="botResponse" class="bot col-md-8 ml-auto mr-auto">
+                    <p class="botText"><span>¡Hola, pregúntame lo que desees!</span></p>
+                </div>
+                <form action="/" class="form-container">
+                    <textarea class="form-control" id="text" type="text" placeholder="Escriba su pregunta." name="msg" required></textarea>
+                    <button type="submit" id="send" class="btn" onclick="enterKey()">Send</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            function enterKey(){
+                var input = document.getElementById("text");
+
+                input.addEventListener("keyup", function(event){
+                    if(event.keyCode === 13){
+                        event.preventDefault();
+                        document.getElementById("send").click();
+                    }
+                });
+            }
+
+            function openForm() {
+                document.getElementById("userInput").style.display = "block";
+                document.getElementById("chatButton").style.display = "none";
+            }
+
+            function closeForm() {
+                document.getElementById("userInput").style.display = "none";
+                document.getElementById("chatButton").style.display = "block";
+            }
+            $(document).ready(function () {
+                $("form").on("submit", function (event) {
+                    var rawText = $("#text").val();
+                    var userHtml = '<p class="userText"><span><b>Tú:</b><br>' + rawText + "</span></p>";
+                    $("#text").val("");
+                    $("#botResponse").append(userHtml);
+                    document.getElementById("userInput").scrollIntoView({
+                        block: "start",
+                        behavior: "smooth",
+                    });
+                    $.ajax({
+                        data: {
+                            msg: rawText,
+                        },
+                        type: "POST",
+                        url: "/get",
+                    }).done(function (data) {
+                        var botHtml = '<p class="botText"><span><b>Bot:</b><br>' + data.replace(/(?:\r\n|\r|\n)/g,'<br>') + "</span></p>";
+                        $("#botResponse").append($.parseHTML(botHtml));
+                        document.getElementById("userInput").scrollIntoView({
+                            block: "start",
+                            behavior: "smooth",
+                        });
+                    });
+                    event.preventDefault();
+                });
+            });
+        </script>
+</body>
+</html>
